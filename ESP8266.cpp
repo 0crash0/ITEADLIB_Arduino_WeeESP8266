@@ -719,3 +719,104 @@ bool ESP8266::sATCIPSTO(uint32_t timeout)
     return recvFind("OK");
 }
 
+
+/////////////////////////////////////////////////////////////////////////////
+//        ADDEDED BY 0CRASH0
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+//  SET IP IN STATION MODE
+bool ESP8266::setSTAip(String ip){
+	return sATCIPSTA(ip);
+}
+bool ESP8266::sATCIPSTA(String ip)
+{
+    String data;
+    rx_empty();
+    m_puart->print("AT+CIPSTA=\"");
+    m_puart->print(ip);
+    m_puart->println("\"");
+    
+    data = recvString("OK", "FAIL", 10000);
+    if (data.indexOf("OK") != -1) {
+        return true;
+    }
+    return false;
+}
+
+//  SET IP IN AP MODE
+bool ESP8266::setAPip(String ip){
+	return sATCIPAP(ip);
+}
+bool ESP8266::sATCIPAP(String ip)
+{
+    String data;
+    rx_empty();
+    m_puart->print("AT+CIPAP=\"");
+    m_puart->print(ip);
+    m_puart->println("\"");
+    
+    data = recvString("OK", "FAIL", 10000);
+    if (data.indexOf("OK") != -1) {
+        return true;
+    }
+    return false;
+}
+
+//  SET MAC IN STATION MODE
+bool ESP8266::setSTAmac(String mac){
+	return sATCIPSTAMAC(mac);
+}
+bool ESP8266::sATCIPSTAMAC(String mac)
+{
+    String data;
+    rx_empty();
+    m_puart->print("AT+CIPSTAMAC=\"");
+    m_puart->print(mac);
+    m_puart->println("\"");
+    
+    data = recvString("OK", "FAIL", 10000);
+    if (data.indexOf("OK") != -1) {
+        return true;
+    }
+    return false;
+}
+
+//  SET MAC IN AP MODE
+bool ESP8266::setAPmac(String mac){
+	return sATCIPAPMAC(mac);
+}
+bool ESP8266::sATCIPAPMAC(String mac)
+{
+    String data;
+    rx_empty();
+    m_puart->print("AT+CIPAPMAC=\"");
+    m_puart->print(mac);
+    m_puart->println("\"");
+    
+    data = recvString("OK", "FAIL", 10000);
+    if (data.indexOf("OK") != -1) {
+        return true;
+    }
+    return false;
+}
+
+//  SET TCP/IP  MODE   0=usual mode, 1=unvarnished transmission mode
+bool ESP8266::setTCPIPmode(int mode){
+	return sATCIPMODE(mode);
+}
+bool ESP8266::sATCIPMODE(int mode)
+{
+	//0=usual mode, 1=unvarnished transmission mode
+    String data;
+    rx_empty();
+    m_puart->print("AT+CIPMODE=");
+    m_puart->println(mode);
+    
+    data = recvString("OK", "FAIL", 10000);
+    if (data.indexOf("OK") != -1) {
+        return true;
+    }
+    return false;
+}
