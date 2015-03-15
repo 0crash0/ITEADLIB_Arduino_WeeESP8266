@@ -87,6 +87,14 @@ will be useful for Arduino lovers.
     uint32_t 	recv (uint8_t mux_id, uint8_t *buffer, uint32_t buffer_size, uint32_t timeout=1000) : Receive data from one of TCP or UDP builded already in multiple mode. 
      
     uint32_t 	recv (uint8_t *coming_mux_id, uint8_t *buffer, uint32_t buffer_size, uint32_t timeout=1000) : Receive data from all of TCP or UDP builded already in multiple mode. 
+    
+    //ADDED by 0crash0
+    
+    bool setSTAip(string ip)    //change ip in station mode
+    bool setAPip(string ip)     //change ip in AP mode
+    bool setSTAmac(string mac)  //change mac in station mode
+    bool setAPmac(string mac)   //change mac in AP mode
+    bool setTCPIPmode(int mode) //set TCP/IP  mode                0=usual mode, 1=unvarnished transmission mode
 
 
 # Mainboard Requires
