@@ -176,6 +176,9 @@ See the follow line in the HardwareSerial.h file.
 The default size of the buffer is 64. Change it into a bigger number, like 256 or more.
 
 
+## set baud rate for your serial like that:
+ESP8266 wifi(Serial1,115200);
+
 -------------------------------------------------------------------------------
 
 # The End!
