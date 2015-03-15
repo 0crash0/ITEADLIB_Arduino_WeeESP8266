@@ -437,6 +437,41 @@ class ESP8266 {
      * +IPD,id,len:data
      */
     
+/////////////////////////////////////////////////////////////////////////////
+//        ADDEDED BY 0CRASH0
+/////////////////////////////////////////////////////////////////////////////
+
+//  SET IP IN STATION MODE
+public: bool setSTAip(String ip);
+private: bool sATCIPSTA(String ip);
+
+
+//  SET IP IN AP MODE
+public: bool setAPip(String ip);
+private: bool sATCIPAP(String ip);
+
+
+//  SET MAC IN STATION MODE
+public: bool setSTAmac(String mac);
+private: bool sATCIPSTAMAC(String mac);
+
+
+//  SET MAC IN AP MODE
+public: bool setAPmac(String mac);
+private: bool sATCIPAPMAC(String mac);
+
+
+//  SET TCP/IP  MODE                   0=usual mode, 1=unvarnished transmission mode
+public: bool setTCPIPmode(int mode);
+private: bool sATCIPMODE(int mode);
+
+
+	
+/////////////////////////////////////////////////////////////////////////////
+//     END   ADDEDED BY 0CRASH0
+/////////////////////////////////////////////////////////////////////////////
+
+
 #ifdef ESP8266_USE_SOFTWARE_SERIAL
     SoftwareSerial *m_puart; /* The UART to communicate with ESP8266 */
 #else
